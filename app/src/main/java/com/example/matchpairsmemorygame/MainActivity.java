@@ -1,19 +1,14 @@
 package com.example.matchpairsmemorygame;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btplay;
-    Button btGameRanking;
-    Button btYourRecords;
-    Button btClose;
-
+    Button btplay, btGameRanking, btYourRecords, btClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,23 +16,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btplay = findViewById(R.id.btPlay);
+        btplay.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, GamePlayActivity.class);
+            startActivity(intent);
+        });
+
         btGameRanking = findViewById(R.id.btGameRanking);
+        btGameRanking.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, GameRankingActivity.class);
+            startActivity(intent);
+        });
+
         btYourRecords = findViewById(R.id.btYourRecords);
+        btYourRecords.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, YourRecordsActivity.class);
+            startActivity(intent);
+        });
+
         btClose = findViewById(R.id.btClose);
-    }
-
-    public void gamePlay(View view){
-        Intent i = new Intent(this, GamePlayActivity.class);
-        startActivity(i);
-    }
-
-    public void checkRanking(View view){
-        Intent i = new Intent(this, GameRankingActivity.class);
-        startActivity(i);
-    }
-
-    public void checkYourRecords(View view){
-        Intent i = new Intent(this, YourRecordsActivity.class);
-        startActivity(i);
+        btClose.setOnClickListener(v -> {
+            finish();
+        });
     }
 }

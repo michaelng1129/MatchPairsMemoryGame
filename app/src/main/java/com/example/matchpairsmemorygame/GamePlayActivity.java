@@ -51,16 +51,16 @@ public class GamePlayActivity extends AppCompatActivity {
         switch (index) {
             case 0:
             case 4:
-                return R.drawable.image1;
+                return R.drawable.contra;
             case 1:
             case 5:
-                return R.drawable.image2;
+                return R.drawable.ninja_gaiden;
             case 2:
             case 6:
-                return R.drawable.image3;
+                return R.drawable.super_dodge_ball;
             case 3:
             case 7:
-                return R.drawable.image4;
+                return R.drawable.super_mario;
             default:
                 return 0;
         }
@@ -86,7 +86,7 @@ public class GamePlayActivity extends AppCompatActivity {
             } else {
                 // Images do not match
                 for (ImageButton ib : imageButtons) {
-                    ib.setImageResource(R.drawable.question_mark);
+                    //ib.setImageResource(R.drawable.question_mark);
                 }
                 firstImage = null;
                 secondImage = null;
