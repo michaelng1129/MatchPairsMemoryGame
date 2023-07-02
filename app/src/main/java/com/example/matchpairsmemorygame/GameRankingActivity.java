@@ -1,8 +1,10 @@
 package com.example.matchpairsmemorygame;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,9 +22,11 @@ import java.util.Comparator;
 import java.util.List;
 
 public class GameRankingActivity extends Activity {
+
     ListView lvGameRanking;
-    ArrayAdapter<String> adapter;
-    List<String> data = new ArrayList<>();
+    private ArrayAdapter<String> adapter;
+    private List<String> data = new ArrayList<>();
+    Button btBack;
 
     String apiUrl = "https://ranking-mobileasignment-wlicpnigvf.cn-hongkong.fcapp.run";
 
@@ -33,8 +37,16 @@ public class GameRankingActivity extends Activity {
 
         // Initialize the ListView and ArrayAdapter
         lvGameRanking = findViewById(R.id.lvGameRanking);
+        btBack = findViewById(R.id.btBack);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, data);
         lvGameRanking.setAdapter(adapter);
+
+        // Set click listener for the back button
+        btBack.setOnClickListener(v -> {
+            // Start the MainActivity
+            Intent intent = new Intent(GameRankingActivity.this, MainActivity.class);
+            startActivity(intent);
+        });
 
         // Fetch ranking data from the API
         fetchData();

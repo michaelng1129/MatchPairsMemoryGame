@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Match Pairs Memory Game</string>
     <string name="gameName">Match Pairs Memory Game</string>
-    <string name="tvMoves">Moves:</string>
-    <string name="tvGameMoves"></string>
+    <string name="tvMoves"></string>
+    <string name="moves_count">Moves: %d</string>
+    <string name="result">Congratulations! Your Moves is</string>
+    <string name="btBack">Back</string>
+    <string name="btPlayAgain">Play Again</string>
+    <string name="tvYourRecords">Your Records</string>
+    <string name="tvGameRanking">Game Ranking</string>
+
 </resources>

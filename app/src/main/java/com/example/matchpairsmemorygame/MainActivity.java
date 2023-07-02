@@ -8,34 +8,41 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btplay, btGameRanking, btYourRecords, btClose;
+    Button btPlay, btGameRanking, btYourRecords, btClose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btplay = findViewById(R.id.btPlay);
-        btplay.setOnClickListener(v -> {
+        // Initialize buttons
+        btPlay = findViewById(R.id.btPlay);
+        btGameRanking = findViewById(R.id.btGameRanking);
+        btYourRecords = findViewById(R.id.btYourRecords);
+        btClose = findViewById(R.id.btClose);
+
+        // Set click listeners for buttons
+        btPlay.setOnClickListener(v -> {
+            // Start the GamePlayActivity
             Intent intent = new Intent(MainActivity.this, GamePlayActivity.class);
             startActivity(intent);
         });
 
-        btGameRanking = findViewById(R.id.btGameRanking);
         btGameRanking.setOnClickListener(v -> {
+            // Start the GameRankingActivity
             Intent intent = new Intent(MainActivity.this, GameRankingActivity.class);
             startActivity(intent);
         });
 
-        btYourRecords = findViewById(R.id.btYourRecords);
         btYourRecords.setOnClickListener(v -> {
+            // Start the YourRecordsActivity
             Intent intent = new Intent(MainActivity.this, YourRecordsActivity.class);
             startActivity(intent);
         });
 
-        btClose = findViewById(R.id.btClose);
         btClose.setOnClickListener(v -> {
-            finish();
+            // Close the app
+            finishAffinity();
         });
     }
 }
